@@ -19,7 +19,13 @@ await connectDB()
 await connectCloudinary()
 
 // Middleware
-app.use(cors())
+// CORS Configuration
+const corsOptions = {
+    origin: ['https://job-portal-client-ten-wheat.vercel.app'], // Replace this with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(clerkMiddleware())
 
