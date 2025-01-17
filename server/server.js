@@ -19,7 +19,11 @@ await connectDB()
 await connectCloudinary()
 
 // Middleware
-const orig={origin:'*'}
+const orig = {
+  origin: 'https://job-portal-client-te.wheat.vercel.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, 
+};  
 app.use(cors(orig))
 app.use(express.json())
 app.use(clerkMiddleware())
