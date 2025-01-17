@@ -19,8 +19,8 @@ await connectDB()
 await connectCloudinary()
 
 // Middleware
-
-app.use(cors())
+const orig={origin:'*'}
+app.use(cors(orig))
 app.use(express.json())
 app.use(clerkMiddleware())
 
